@@ -43,11 +43,12 @@ class HttpProvider implements ProviderInterface
         }
 
         $xml = curl_exec($session);
-        curl_close($session);
 
         if($xml === false) {
             throw new HttpException('cURL error: ' . curl_errno($session));
         }
+
+        curl_close($session);
 
         return $xml;
     }
