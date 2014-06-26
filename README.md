@@ -12,7 +12,7 @@ $ares = new \Edge\Ares\Ares($parser, $provider);
 
 In case proxy server needs to be specified, you can use this way:
 ```php
-$proxyDecorator = new \Edge\Ares\Decorator\ProxyCurlDecorator($hostname, $proxy)
+$proxyDecorator = new \Edge\Ares\Decorator\ProxyCurlDecorator($hostname, $proxy);
 $parser = new \Edge\Ares\Parser\AddressParser();
 $provider = new \Edge\Ares\Provider\HttpProvider($proxyDecorator);
 $ares = new \Edge\Ares\Ares($parser, $provider);
@@ -20,7 +20,7 @@ $ares = new \Edge\Ares\Ares($parser, $provider);
 
 When credentials needs to be specified too, you can slightly modify the example above:
 ```php
-$proxyDecorator = new \Edge\Ares\Decorator\ProxyCurlDecorator($hostname, $proxy, $username, $password)
+$proxyDecorator = new \Edge\Ares\Decorator\ProxyCurlDecorator($hostname, $proxy, $username, $password);
 $parser = new \Edge\Ares\Parser\AddressParser();
 $provider = new \Edge\Ares\Provider\HttpProvider($proxyDecorator);
 $ares = new \Edge\Ares\Ares($parser, $provider);
@@ -29,6 +29,7 @@ $ares = new \Edge\Ares\Ares($parser, $provider);
 When \Edge\Ares\Ares is instantiated, you can use it like this:
 ```php
 try {
+    /** @var \Edge\Ares\Ares $ares */
     /** @var \Edge\Ares\Container\Address $address */
     $address = $ares->fetchSubjectAddress(12345678);
 } catch (\Edge\Ares\Exception\ExceptionInterface $e) {
